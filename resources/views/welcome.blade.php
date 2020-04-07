@@ -10,6 +10,9 @@
     <script src="/js/app.js" defer></script>
 </head>
 <body class="bg-blue-500">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, impedit nam consequuntur provident eos nostrum debitis ipsum dolorem beatae cupiditate est officia sit, animi nemo quidem minima, culpa enim dolor?
+    <div id="app">
+        <example-component>7:30 time stamp</example-component>
+    </div>
+    
 </body>
 </html>
