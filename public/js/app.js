@@ -37382,7 +37382,7 @@ var staticRenderFns = [
                     _vm._v("8.C ")
                   ]),
                   _vm._v(" "),
-                  _c("div", [_vm._v("Feels like 2.C ")])
+                  _c("div", [_vm._v("Feels like 2°C ")])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "mx-5" }, [
@@ -37419,7 +37419,7 @@ var staticRenderFns = [
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "w-1/6 text-right" }, [
-                  _c("div", [_vm._v("5.C")]),
+                  _c("div", [_vm._v("5°C")]),
                   _vm._v(" "),
                   _c("div", [_vm._v("-2.C")])
                 ])
@@ -37459,9 +37459,9 @@ var staticRenderFns = [
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "w-1/6 text-right" }, [
-                  _c("div", [_vm._v("5.C")]),
+                  _c("div", [_vm._v("5°C")]),
                   _vm._v(" "),
-                  _c("div", [_vm._v("-2.C")])
+                  _c("div", [_vm._v("-2°C")])
                 ])
               ])
             ]

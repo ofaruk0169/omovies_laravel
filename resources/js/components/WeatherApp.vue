@@ -10,7 +10,7 @@
             <div class="flex items-center">
                 <div> 
                     <div class="text-6xl font-semibold">8.C </div>
-                    <div>Feels like 2.C </div>
+                    <div>Feels like 2°C </div>
                 </div>
                 <div class="mx-5"> 
                     <div class="font-semibold">Cloudy </div>
@@ -28,7 +28,7 @@
                     <div class="ml-3">Cloudy with a chance of meatballs</div>
                 </div>
                 <div class="w-1/6 text-right">
-                    <div>5.C</div>
+                    <div>5°C</div>
                     <div>-2.C</div>
                 </div>
             </div>
@@ -50,8 +50,8 @@
                     <div class="ml-3">Cloudy with a chance of meatballs</div>
                 </div>
                 <div class="w-1/6 text-right">
-                    <div>5.C</div>
-                    <div>-2.C</div>
+                    <div>5°C</div>
+                    <div>-2°C</div>
                 </div>
             </div>
 
