@@ -26,27 +26,30 @@
                 </p>
 
                 <div class="mt-12">
-                    <h4 class="text-white font-semibold">Featured Cast</h4>
+                    <h4 class="text-white font-semibold">Featured Crew</h4>
                     <div class="flex mt-4">
-                        <div>
-                            <div>Bon Joon-ho</div>
-                            <div class="text-sm text-gray-400">Screenpplay Director, Story</div>
-                        </div>
+                        @foreach ($movie['credits']['crew'] as $crew)
+                            @if ($loop->index < 2)
+                                <div class="mr-8">
+                                    <div>{{ $crew['name']}}</div>
+                                    <div class="text-sm text-gray-400">{{ $crew['job']}}</div>
+                                </div>
+                            @endif
+                            
+                        @endforeach
+                        
                     </div>
-                    <div class="flex mt-8">
-                        <div>
-                            <div>Han Jin-won</div>
-                            <div class="text-sm text-gray-400">Screenplay</div>
-                        </div>
-                    </div>
+                    
                 </div>
 
-                <div class="mt-12">
-                    <button class="flex items-center bg-orange-500 text-gray-900 rounded font-semibold px-5 
-                    py-4 hover:bg-orange-600 transition ease-in-out duration-150">
-                    <span>Play Trailer</span>
-                    </button>
-                </div>
+                @if (count($movie['videos']['results']) > 0)
+                    <div class="mt-12">
+                        <a href="https://youtube.com/watch?v={{$movie['videos']['results'][0]['key']}}" class="flex inline-flex items-center bg-orange-500 text-gray-900 rounded font-semibold px-5 
+                            py-4 hover:bg-orange-600 transition ease-in-out duration-150">
+                            <span>Play Trailer</span>
+                        </a>
+                    </div>
+                @endif
 
 
             </div>
@@ -60,67 +63,24 @@
         <div class="container mx-auto px-4 py-16">
             <h2 class="text-4xl font-semibold">Cast</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="/img/parasite.jpg" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div class="mt-2">
-                        <a href="#" class="text-lg mt-2 hover:text-gray:300">Parasite</a>
-                       
-                        <div class="text-gray-400 text-sm">
-                            Action, Thriller, Comedy
+                @foreach ($movie['credits']['cast'] as $cast)
+                    @if ($loop->index < 5)
+                        <div class="mt-8">
+                            <a href="#">
+                                <img src="{{ 'https://image.tmdb.org/t/p/w300/'.$cast['profile_path']}}" alt="actor1" 
+                                class="hover:opacity-75 transition ease-in-out duration-150">
+                            </a>
+                            <div class="mt-2">
+                                <a href="#" class="text-lg mt-2 hover:text-gray:300">{{$cast['name']}}</a>
+                            
+                                <div class="text-gray-400 text-sm">
+                                    {{$cast['character']}}
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="/img/parasite.jpg" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div class="mt-2">
-                        <a href="#" class="text-lg mt-2 hover:text-gray:300">Parasite</a>
-                       
-                        <div class="text-gray-400 text-sm">
-                            Action, Thriller, Comedy
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="/img/parasite.jpg" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div class="mt-2">
-                        <a href="#" class="text-lg mt-2 hover:text-gray:300">Parasite</a>
-                       
-                        <div class="text-gray-400 text-sm">
-                            Action, Thriller, Comedy
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="/img/parasite.jpg" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div class="mt-2">
-                        <a href="#" class="text-lg mt-2 hover:text-gray:300">Parasite</a>
-                       
-                        <div class="text-gray-400 text-sm">
-                            Action, Thriller, Comedy
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="/img/parasite.jpg" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div class="mt-2">
-                        <a href="#" class="text-lg mt-2 hover:text-gray:300">Parasite</a>
-                       
-                        <div class="text-gray-400 text-sm">
-                            Action, Thriller, Comedy
-                        </div>
-                    </div>
-                </div>
-                
+                    @endif
+                @endforeach
+     
             </div>
         </div>
     </div>
@@ -131,68 +91,19 @@
         <div class="container mx-auto px-4 py-16">
             <h2 class="text-4xl font-semibold">Images</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="/img/parasite.jpg" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div class="mt-2">
-                        <a href="#" class="text-lg mt-2 hover:text-gray:300">Parasite</a>
-                       
-                        <div class="text-gray-400 text-sm">
-                            Action, Thriller, Comedy
+                @foreach ($movie['images']['backdrops'] as $image)
+                    @if ($loop->index < 9)
+                        <div class="mt-8">
+                            <a href="#">
+                                <img src={{'https://image.tmdb.org/t/p/w500/'.$image['file_path']}} alt="image1" 
+                                class="hover:opacity-75 transition ease-in-out duration-150">
+                            </a>
                         </div>
-                    </div>
+                    @endif 
+                @endforeach                               
                 </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="/img/parasite.jpg" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div class="mt-2">
-                        <a href="#" class="text-lg mt-2 hover:text-gray:300">Parasite</a>
-                       
-                        <div class="text-gray-400 text-sm">
-                            Action, Thriller, Comedy
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="/img/parasite.jpg" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div class="mt-2">
-                        <a href="#" class="text-lg mt-2 hover:text-gray:300">Parasite</a>
-                       
-                        <div class="text-gray-400 text-sm">
-                            Action, Thriller, Comedy
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="/img/parasite.jpg" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div class="mt-2">
-                        <a href="#" class="text-lg mt-2 hover:text-gray:300">Parasite</a>
-                       
-                        <div class="text-gray-400 text-sm">
-                            Action, Thriller, Comedy
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="/img/parasite.jpg" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div class="mt-2">
-                        <a href="#" class="text-lg mt-2 hover:text-gray:300">Parasite</a>
-                       
-                        <div class="text-gray-400 text-sm">
-                            Action, Thriller, Comedy
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
+            </div>             
         </div>
     </div>
+</div>
 @endsection
