@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ViewModels\MovieViewModel;
+use App\ViewModels\MoviesViewModel;
 use Illuminate\Support\Facades\Http;
+
+
 
 class MoviesController extends Controller
 {
@@ -33,12 +37,21 @@ class MoviesController extends Controller
 
         // dump($nowPlayingMovies);
 
-        return view('index', [
-            'popularMovies' => $popularMovies,
-            'nowPlayingMovies' => $nowPlayingMovies,
-            'genres' => $genres,
-        ]);
+        // return view('index', [
+        //     'popularMovies' => $popularMovies,
+        //     'nowPlayingMovies' => $nowPlayingMovies,
+        //     'genres' => $genres,
+        // ]);
+
+        $viewModel = new MoviesViewModel (
+            $popularMovies,
+            $nowPlayingMovies,
+            $genres,
+        );
+
+        return view('index', $viewModel);
     }
+    
 
     /**
      * Show the form for creating a new resource.

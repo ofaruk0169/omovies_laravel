@@ -34,6 +34,8 @@
                                     <div>{{ $crew['name']}}</div>
                                     <div class="text-sm text-gray-400">{{ $crew['job']}}</div>
                                 </div>
+                            @else
+                                @break
                             @endif
                             
                         @endforeach
@@ -109,6 +111,8 @@
                                 </div>
                             </div>
                         </div>
+                    @else
+                        @break
                     @endif
                 @endforeach
      
@@ -137,6 +141,8 @@
                                 class="hover:opacity-75 transition ease-in-out duration-150">
                             </a>
                         </div>
+                    @else
+                        @break
                     @endif 
                 @endforeach                               
                 </div>
