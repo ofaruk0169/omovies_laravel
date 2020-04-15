@@ -1,6 +1,13 @@
 <div class="relative mt-3 md:mt-0" x-data="{ isOpen: true}" @click.away="isOpen = false">
     <input wire:model.debounce.500ms="search" type="text" class="bg-gray-800 text-sm rounded-full w-65 px-4 pl-8 py-1
     focus:outline-none focus:shadow-outline" placeholder="Search"
+    x-ref="search"
+    @keydown.window="
+        if(event.keyCode == 191) {
+            event.preventDefault();
+            $refs.search.focus();
+        }
+    "
     @focus="isOpen = true"
     @keydown="isOpen = true"
     @keydown.escape.window="isOpen = false"
