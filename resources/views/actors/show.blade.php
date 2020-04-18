@@ -1,10 +1,10 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="movie-info border-b border-gray-800">
+    <div class="movie-info border-b border-red-800">
         <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row">
             <div class="flex-none">
-                <img src="{{$actor['profile_path']}}" alt="profile image" class="w-76"">
+                <img src="{{$actor['profile_path']}}" alt="profile image" class="w-76">
                 <ul class="flex items-center mt-4">
                     @if ($social['facebook'])
                     <li>
@@ -44,27 +44,27 @@
                 </ul>
             </div>
             <div class="md:ml-24">
-                <h2 class="text-4xl font-semibold">{{$actor['name']}}</h2>
+                <h2 class="text-4xl font-semibold text-blue-800">{{$actor['name']}}</h2>
                 <div class="flex flex-wrap items-center text-gray-400 text-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" class="fill-current text-orange-500 w-4" viewBox="0 0 25 31.25"><path d="M16.755 14.6a.039.039 0 00-.013.043l2.233 6.699a.5.5 0 01-.77.561l-5.681-4.166a.04.04 0 00-.047 0l-5.68 4.166a.5.5 0 01-.77-.561l2.233-6.699a.039.039 0 00-.014-.044l-5.04-3.696A.5.5 0 013.5 10h6.278a.04.04 0 00.038-.027l2.206-6.62a.504.504 0 01.956 0l2.206 6.62a.04.04 0 00.038.027H21.5a.5.5 0 01.296.903z"/><text y="40" font-size="5" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Kmg Design</text><text y="45" font-size="5" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
-                    <span class="ml-1">{{$actor['birthday']}} {{$actor['age']}} {{$actor['place_of_birth']}}</span>
+                    <span class="ml-1 text-red-800">{{$actor['birthday']}} {{$actor['age']}} {{$actor['place_of_birth']}}</span>
                     
                     
                 </div>
 
-                <p class="text-gray-300 mt-8">
+                <p class="text-blue-800 mt-8">
                    {{$actor['biography']}}
                 </p>
 
-                <h4 class="font-semibold mt-12">Known For</h4>
+                <h4 class="font-semibold mt-12 text-blue-800">Known For</h4>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
                     @foreach ($knownForMovies as $movie)
-                        <div class="mt-4">
+                        <div class="mt-4 text-red-800">
                             <a href="{{ route('movies.show', $movie['id']) }}"><img src="{{ $movie['poster_path'] }}" alt="poster" 
                             class="hover:opacity-75 transition ease-in-out duration-150"></a>
-                            <a href="{{ route('movies.show', $movie['id']) }}" class="text-sm leading-normal block text-gray-400 
-                            hover:text-white mt-1">{{ $movie['title'] }}</a>
+                            <a href="{{ route('movies.show', $movie['id']) }}" class="text-sm leading-normal block text-red-800 
+                            hover:text-blue mt-1">{{ $movie['title'] }}</a>
                         </div>
 
                     @endforeach
@@ -84,8 +84,8 @@
 
     <div class="credits border-b border-gray-800">
         <div class="container mx-auto px-4 py-16">
-            <h2 class="text-4xl font-semibold">Credits</h2>
-            <ul class="list-disc leading-loose pl-5 mt-8">
+            <h2 class="text-4xl font-semibold text-blue-800">Credits</h2>
+            <ul class="list-disc leading-loose pl-5 mt-8 text-blue-800">
                 @foreach ($credits as $credit)
                     <li>{{$credit['release_year']}} &middot; <strong>{{$credit['title']}} </strong>as {{$credit['character']}}</li>    
                 @endforeach

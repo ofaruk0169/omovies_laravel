@@ -7,8 +7,8 @@
                 <img src="{{$movie['poster_path']}}" alt="postermovie" class="w-64 md:w-96">
             </div>
             <div class="md:ml-24">
-                <h2 class="text-4xl font-semibold">{{ $movie['title']}}</h2>
-                <div class="flex flex-wrap items-center text-gray-400 text-sm">
+                <h2 class="text-4xl font-semibold text-blue-800">{{ $movie['title']}}</h2>
+                <div class="flex flex-wrap items-center text-red-800 text-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" class="fill-current text-orange-500 w-4" viewBox="0 0 25 31.25"><path d="M16.755 14.6a.039.039 0 00-.013.043l2.233 6.699a.5.5 0 01-.77.561l-5.681-4.166a.04.04 0 00-.047 0l-5.68 4.166a.5.5 0 01-.77-.561l2.233-6.699a.039.039 0 00-.014-.044l-5.04-3.696A.5.5 0 013.5 10h6.278a.04.04 0 00.038-.027l2.206-6.62a.504.504 0 01.956 0l2.206 6.62a.04.04 0 00.038.027H21.5a.5.5 0 01.296.903z"/><text y="40" font-size="5" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Kmg Design</text><text y="45" font-size="5" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
                     <span class="ml-1">{{$movie['vote_average'] }}</span>
                     <span class="mx-2">|</span>
@@ -19,18 +19,18 @@
                     </span>
                 </div>
 
-                <p class="text-gray-300 mt-8">
+                <p class="text-blue-800 mt-8">
                     {{ $movie['overview']}}
                 </p>
 
                 <div class="mt-12">
-                    <h4 class="text-white font-semibold">Featured Crew</h4>
-                    <div class="flex mt-4">
+                    <h4 class="text-blue-800 font-semibold">Featured Crew</h4>
+                    <div class="flex mt-4 text-red-800">
                         @foreach ($movie['crew'] as $crew)
                             
                                 <div class="mr-8">
                                     <div>{{ $crew['name']}}</div>
-                                    <div class="text-sm text-gray-400">{{ $crew['job']}}</div>
+                                    <div class="text-sm text-blue-800">{{ $crew['job']}}</div>
                                 </div>
     
                         @endforeach
@@ -89,11 +89,11 @@
 
     <div class="movie-cast border-b border-gray-800">
         <div class="container mx-auto px-4 py-16">
-            <h2 class="text-4xl font-semibold">Cast</h2>
+            <h2 class="text-4xl font-semibold text-blue-800">Cast</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
                 @foreach ($movie['cast'] as $cast)
                     
-                        <div class="mt-8">
+                        <div class="mt-8 text-blue-800">
                             <a href="{{route('actors.show', $cast['id'])}}">
                                 <img src="{{ 'https://image.tmdb.org/t/p/w300/'.$cast['profile_path']}}" alt="actor1" 
                                 class="hover:opacity-75 transition ease-in-out duration-150">
@@ -101,7 +101,7 @@
                             <div class="mt-2">
                                 <a href="{{route('actors.show', $cast['id'])}}" class="text-lg mt-2 hover:text-gray:300">{{$cast['name']}}</a>
                             
-                                <div class="text-gray-400 text-sm">
+                                <div class="text-red-800 text-sm">
                                     {{$cast['character']}}
                                 </div>
                             </div>
@@ -117,7 +117,7 @@
 
     <div class="movie-images" x-data="{ isOpen: false, image: ''}">
         <div class="container mx-auto px-4 py-16">
-            <h2 class="text-4xl font-semibold">Images</h2>
+            <h2 class="text-4xl font-semibold text-blue-800">Images</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
                 @foreach ($movie['images'] as $image)
                     <div class="mt-8">
